@@ -1,0 +1,355 @@
+<!DoctypeHTML>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>HireUs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Hire.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="icon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <script src="indexjava.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="http://code.jquery.com/jquery-3.5.1.js">
+    </script>
+    
+    </head>
+    
+    <body>
+
+         
+   
+            <nav>
+                <div class="toggle">
+                    <img class="taakloimg" src="icon.png" width="50px" height="50px">
+                     <i class="fa fa-bars menu" aria-hidden="true"></i>
+                </div>
+        <label class="logo"><a link href="index.html"><img class="logoimg" src="taakloico.png" width="150px" height="70px"></a></label> 
+            <ul>
+             <li><a href="index.html">Home</a></li>
+             <li><a href="index.html#about">About</a></li>
+             <li><a href="index.html#our-pro">Our Projects</a></li>
+            </ul>
+    
+            </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    
+        <h1 class="thanks">Thanks For Your Interest</h1>
+        <h3 class="wait">Please answer below questions and we will be in touch with you..</h3>
+              
+              <div class="form-container">
+              <form method="post" action="form.php" class="myForm">
+                  <div class="name">
+                  <input name="name" type="text" class="texter" required  placeholder="Enter Your Name" value=""><br>
+                    </div>
+                  <div class="number">
+                  <input name="number" type="number" class="numbers" required  placeholder="Phone Number(eg:918592805156)" value=""><br>
+                 
+                  </div>
+                  <div class="email">
+                  <input name="email" class="emailer" type="email" placeholder="Enter Your Email" value="" required>      
+                  </div>
+                  <div class="custom-select" style="width: 200px">
+                  <select name="service" required class="selecter1">
+                      <option value="">Select A Service</option>
+                      <option value="androidapp">Android App Dev</option>   
+                      <option value="iosapp">IOS App Dev</option>
+                      <option value="ui">UI Design</option>
+                      <option value="web">WebApp Dev</option>
+                      <option value="webapp">Website Dev</option>
+                      <option value="back">Backend Dev</option>
+                      <option value="oth">Other Work</option>
+                  </select><br>
+                      <p class="servicep"></p>
+                  </div>
+                  
+                  <div class="custom-select2" style="width: 200px">
+                  <select name="budget" required class="selecter2">
+                      <option value="">Select Your Budget</option>
+                      <option value="lessthan700d">Less Than $700</option>
+                      <option value="Lessthan1500d">Less Than $1500k</option>
+                      <option value="1500-5000d">$1500 - $5000</option>
+                      <option value="morethan5000d">More Than $5000</option>
+                      </select> <br>
+                      <p class="budgetp"></p>
+                  </div>
+                  <div class="submit">
+                  <input type="submit" name="submit" onclick="sendEmail()" class="submitbtn" value="HireUs">
+                  </div>
+             
+                  </form>
+                  
+              
+              </div>
+        
+           <p class="redp">After submission you will be redirected to Home Page..Dont Worry, your form will be submitted and we will be contacting you within a short time.</p>
+        
+        <h4 class="sent-noti"></h4>
+        
+        <section class="footer">
+            <h6 class="copy">© 2020 Taaklo. All Rights Reserved.</h6>
+            
+            </section> 
+        
+        
+
+    
+        <script type="text/javascript">
+        
+        var x, i, j, l, ll, selElmnt, a, b, c;
+/* Look for any elements with the class "custom-select": */
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /* For each element, create a new DIV that will act as the selected item: */
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /* For each element, create a new DIV that will contain the option list: */
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /* For each option in the original select element,
+    create a new DIV that will act as an option item: */
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /* When an item is clicked, update the original select box,
+        and the selected item: */
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+    /* When the select box is clicked, close any other select boxes,
+    and open/close the current select box: */
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+  });
+}
+
+function closeAllSelect(elmnt) {
+  /* A function that will close all select boxes in the document,
+  except the current select box: */
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+
+/* If the user clicks anywhere outside the select box,
+then close all select boxes: */
+document.addEventListener("click", closeAllSelect);
+        </script>
+        
+          <script type="text/javascript">
+        
+        var x, i, j, l, ll, selElmnt, a, b, c;
+/* Look for any elements with the class "custom-select": */
+x = document.getElementsByClassName("custom-select2");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /* For each element, create a new DIV that will act as the selected item: */
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /* For each element, create a new DIV that will contain the option list: */
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /* For each option in the original select element,
+    create a new DIV that will act as an option item: */
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /* When an item is clicked, update the original select box,
+        and the selected item: */
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+    /* When the select box is clicked, close any other select boxes,
+    and open/close the current select box: */
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+  });
+}
+
+function closeAllSelect(elmnt) {
+  /* A function that will close all select boxes in the document,
+  except the current select box: */
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+
+/* If the user clicks anywhere outside the select box,
+then close all select boxes: */
+document.addEventListener("click", closeAllSelect);
+        </script>
+        
+        <script>
+        function sendEmail(){
+            var name = $(".texter");
+            var number = $(".numbers");
+            var email = $(".emailer");
+            var service = $(".selecter1");
+            var budget = $(".selecter2");
+            
+            if(isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(number) && isNotEmpty(service) && isNotEmpty(budget)){
+                $.ajax({
+                    url: 'form.php',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: {
+                        name: name.val(),
+                        email: email.val(),
+                        number: number.val(),
+                        budget: budget.val(),
+                        service: service.val(),
+                    }, success: function(response){
+                        $('.myForm')[0].reset();
+                        $('.sent-noti').text("Your Form has been successfully sended!");
+                    }
+                });
+            }
+            
+        }
+            
+            function isNotEmpty(caller){
+                if(caller.val() == ""){
+                    caller.css('border', '1px solid red');
+                    return false;
+                }
+                else{
+                    caller.css('border', '');
+                    return true;
+                }
+            }
+        
+        </script>
+        <script type="text/javascript">
+    
+        $(window).on("scroll", function(){
+            if($(window).scrollTop()){
+                $('nav').addClass('black');
+                $('.logo').addClass('pinklabel');
+                $('.logo').removeClass('logo');
+                $('nav li a').addClass('pinknav');
+                $('.toggle').addClass('pinktoggle');
+                $('.toggle').removeClass('toggle');
+                $('nav ul li').addClass('pinkblockli');
+                $('.active').addClass('pinkactive');
+                $('.active').removeClass('active');
+            }
+            else{
+                $('nav').removeClass('black');
+                $('.pinklabel').addClass('logo');
+                $('.pinklabel').removeClass('pinklabel');
+                $('nav li a').removeClass('pinknav');
+                $('.pinktoggle').addClass('toggle');
+                $('.pinktoggle').removeClass('pinktoggle');
+                $('nav ul li').removeClass('pinkblockli');
+                $('.pinkactive').addClass('active');
+                $('.pinkactive').removeClass('pinkactive');
+                
+            }
+        })
+    </script>
+    
+    <script type="text/javascript">
+   $(document).ready(function(){
+       $('.menu').click(function(){
+           $('ul').toggleClass('actives');
+       })
+   })            
+</script>
+  
+        
+        
+        
+
+    </body>
+    
+</html>
