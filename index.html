@@ -23,8 +23,6 @@
     </head>
     <body>
         
-        <div class="container">
-    
         <div id="splash" class="splash__main">
             <div class="b b1"></div>
             <div class="b b2"></div>
@@ -353,7 +351,13 @@ for (i = 0; i < acc.length; i++) {
 }            
 </script>            
           
-
+ <script type="text/javascript">
+   $(document).ready(function(){
+       $('.menu').click(function(){
+           $('ul').toggleClass('actives');
+       })
+   })            
+</script>
             
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
             
@@ -391,15 +395,8 @@ for (i = 0; i < acc.length; i++) {
         })
     </script>
     
-    <script type="text/javascript">
-   $(document).ready(function(){
-       $('.menu').click(function(){
-           $('ul').toggleClass('actives');
-       })
-   })            
-</script>
-            
-        </div>   
+   
+       
     </body>
 
 </html>
